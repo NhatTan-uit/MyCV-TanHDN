@@ -1,49 +1,51 @@
-import React from 'react';
-import { styled } from 'styled-components'; //Types
+import React from 'react'
+import { styled } from 'styled-components';
 
-interface CardInfo {
+//Type
+type Props = {
   title: String;
-  listItem?: String[];
-  listIcon?: [];
+  listitem?: [];
+  listicon?: [];
   content?: String;
-  cardHeight: string;
-  cardWidth: string;
-  backgroundColor: string;
-} //Style
+  bgcolor: string;
+}
 
-const CardWrapper = styled.div<Pick<CardInfo, "cardHeight" | "cardWidth" | "backgroundColor">>`
-    background-color: ${props => props.backgroundColor};
-    height: ${props => props.cardHeight};
-    width: ${props => props.cardWidth};
+//Style
+const CardWrapper = styled.div<Pick<Props, "bgcolor">>`
+    background-color: ${props => props.bgcolor};
 `;
 
-const CardSub: React.FC<CardInfo> = ({
-  title,
-  listItem,
-  listIcon,
-  content,
-  cardHeight,
-  cardWidth,
-  backgroundColor
-}) => {
-  return <CardWrapper {...{
-    cardHeight,
-    cardWidth,
-    backgroundColor
-  }}>
-            <h1>{title}</h1>
-            {listItem && listItem.length > 0 ? <ul>
-                        {listItem.map((item, key) => {
-        return <li key={key}>{item}</li>;
-      })}
-                    </ul> : null}
-            {listIcon && listIcon.length > 0 ? <ul>
-                        {listIcon.map((item, key) => {
-        return <li key={key}>{item}</li>;
-      })}
-                    </ul> : null}
-            {content ? <p>{content}</p> : null}
-        </CardWrapper>;
-};
+const CardSub = (props: Props) => {
+  return (
+    <CardWrapper {...{
+      bgcolor: props.bgcolor
+    }}>
+      <h1>{props.title}</h1>
+      {
+        props.listitem && props.listitem.length > 0 ?
+          <ul>
+            {
+              props.listitem.map((item, key) => {
+                return <li key={key}>{item}</li>;
+              })
+            }
+          </ul> : null
+      }
+      {
+        props.listicon && props.listicon.length > 0 ?
+          <ul>
+            {
+              props.listicon.map((item, key) => {
+                return <li key={key}>{item}</li>;
+              })
+            }
+          </ul> : null
+      }
+      {
+        props.content ? <p>{props.content}</p> : null
+      }
+    </CardWrapper>
+  )
+}
 
-export default CardSub;
+export default CardSub
