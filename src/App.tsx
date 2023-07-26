@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, MutableRefObject } from 'react';
+import { GlobalStyle, Wrapper } from './wrap';
+
+//components
+import GeneratePDF from './components/GeneratePDF';
+import CardSub from './components/CardSub';
 
 function App() {
+  const pdfRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <GlobalStyle />
+        <Wrapper ref={pdfRef}>
+          <h1>
+            Hello world
+          </h1>
+          <CardSub
+            title={"My name is tan"}
+            cardHeight={"22%"}
+            cardWidth={"100%"}
+            backgroundColor='red'
+          ></CardSub>
+          <CardSub
+            title={"My name is tan"}
+            cardHeight={"22%"}
+            cardWidth={"100%"}
+            backgroundColor='aqua'
+          ></CardSub>
+          <CardSub
+            title={"My name is tan"}
+            cardHeight={"22%"}
+            cardWidth={"100%"}
+            backgroundColor='lime'
+          ></CardSub>
+          <CardSub
+            title={"My name is tan"}
+            cardHeight={"22%"}
+            cardWidth={"100%"}
+            backgroundColor='pink'
+          ></CardSub>
+        </Wrapper>
+      </div>
+      <GeneratePDF divref={pdfRef} />
+    </>
   );
 }
 
