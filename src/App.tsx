@@ -4,10 +4,10 @@ import isPropValid from '@emotion/is-prop-valid';
 import { StyleSheetManager } from 'styled-components';
 
 //api
-import { fetchData, CVData } from './api';
+import { fetchData, CVDataHeader, CVDataBody } from './api';
 
 //Global Style (wrap.ts)
-import { GlobalStyle, Wrapper, Container, ContainerMain, ContainerSub, HeaderWrapper } from './wrap';
+import { GlobalStyle, Wrapper, Container, ContainerMain, ContainerSub, HeaderWrapper, cvcolor } from './wrap';
 
 //components
 import GeneratePDF from './components/GeneratePDF';
@@ -19,15 +19,18 @@ function App() {
 
   //state hooks
   const [loadingState, setLoadingState] = useState(true);
-  const [cvdata, setCVData] = useState({});
+  const [cvdatabodysub, setCVDataBodySub] = useState<CVDataBody[]>([]);
+  const [cvdatabodymain, setCVDataBodyMain] = useState<CVDataBody[]>([]);
+  const [cvdataheader, setCVDataHeader] = useState<CVDataHeader>();
 
   //load Data
   useEffect(() => {
     const fetchCVData = async () => {
       try {
         const data = await fetchData();
-        console.log(data);
-        setCVData(data);
+        setCVDataBodySub(data.body.sub);
+        setCVDataBodyMain(data.body.main);
+        setCVDataHeader(data.header);
         setLoadingState(false);
       } catch (e) {
         console.log(e);
@@ -35,40 +38,51 @@ function App() {
     }
 
     fetchCVData();
-  }, [fetchData]);
+  }, []);
 
   return (
     <StyleSheetManager shouldForwardProp={isPropValid}>
       <GlobalStyle />
-      <Wrapper ref={pdfRef}>
-        <HeaderWrapper>
-          <Header
-            bgcolor={'yellow'}
-          ></Header>
-        </HeaderWrapper>
-        <Container>
-          <ContainerSub>
-            <CardSub
-              title={"My name is tan"}
-              bgcolor={"red"}
-            ></CardSub>
-            <CardSub
-              title={"My name is tannnnnnnnnnnnnnnnn"}
-              bgcolor={"aqua"}
-            ></CardSub>
-          </ContainerSub>
-          <ContainerMain>
-            <CardSub
-              title={"My name is tan"}
-              bgcolor={"lime"}
-            ></CardSub>
-            <CardSub
-              title={"My name is tan"}
-              bgcolor={"pink"}
-            ></CardSub>
-          </ContainerMain>
-        </Container>
-      </Wrapper>
+      {
+        !loadingState ?
+          <Wrapper ref={pdfRef}>
+            <HeaderWrapper>
+              <Header
+                bgcolor={'yellow'}
+                data={cvdataheader}
+              ></Header>
+            </HeaderWrapper>
+            <Container>
+              <ContainerSub>
+                {
+                  cvdatabodysub && cvdatabodysub.length > 0 ?
+                    cvdatabodysub.map((item, key) => {
+                      if (key % 2 == 0) {
+                        return <CardSub key={key} data={item} bgcolor={cvcolor['background-secondary-color']} />
+                      }
+                      else return <CardSub key={key} data={item} bgcolor={cvcolor['background-main-color']} />
+                    })
+                    :
+                    <p>no item</p>
+                }
+              </ContainerSub>
+              <ContainerMain>
+                {
+                  cvdatabodymain && cvdatabodymain.length > 0 ?
+                    cvdatabodymain.map((item, key) => {
+                      return <CardSub key={key} data={item} bgcolor={cvcolor['background-secondary-color-blain']} />
+                    })
+                    :
+                    <p>no item</p>
+                }
+              </ContainerMain>
+            </Container>
+          </Wrapper>
+          :
+          <Wrapper>
+            Loading...
+          </Wrapper>
+      }
       <GeneratePDF divref={pdfRef} />
     </StyleSheetManager>
   );

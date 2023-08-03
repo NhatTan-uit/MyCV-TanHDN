@@ -1,13 +1,14 @@
 import React from 'react'
 import { styled } from 'styled-components';
+import { CVDataBody } from '../api';
 
 //Type
 type Props = {
-  title: String;
   listitem?: [];
   listicon?: [];
   content?: String;
   bgcolor: string;
+  data?: CVDataBody;
 }
 
 //Style
@@ -20,7 +21,9 @@ const CardSub = (props: Props) => {
     <CardWrapper {...{
       bgcolor: props.bgcolor
     }}>
-      <h1>{props.title}</h1>
+      {
+        props.data? <h1>{props.data.title}</h1>: <p>nodata</p>
+      }
       {
         props.listitem && props.listitem.length > 0 ?
           <ul>

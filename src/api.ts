@@ -1,6 +1,6 @@
 const cvdata = {
     "header": {
-        "image": "null",
+        "image": "this is a image",
         "title": "Huynh Dac Nhat Tan",
         "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae urna sed nulla bibendum lobortis. Curabitur eu feugiat mauris, eu iaculis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque vel ante mauris. Sed fermentum lacus odio, non condimentum odio fringilla a. Donec tempus, nisl vitae eleifend tristique, ante lacus vehicula dolor, sed ultricies mauris urna at libero"
     },
@@ -36,7 +36,15 @@ const cvdata = {
     }
 }
 
-export interface CVData {
+export interface CVDataHeader {
+    content: string,
+    image: string,
+    title: string,
+}
+
+export interface CVDataBody {
+    content: string,
+    title: string,
 }
 
 export const fetchData = async () => {

@@ -8,12 +8,24 @@ export const colorlist = {
     testbgpartsub2: "purple",
 };
 
+export const cvcolor = {
+    'background-main-color': '#156388',
+    'background-secondary-color': '#4CA1C1',
+    'background-secondary-color-blain': '#FFFFFF',
+
+    'text-color-main': '#FFFFFF',
+    'text-color-secondary': '#8EC5DA',
+    'text-color-main-blain': "#525859",
+    'text-color-secondary-blan': '#AFA69E'
+};
+
 export const GlobalStyle = createGlobalStyle`
     *{
         box-sizing: border-box;
         margin: 0;
         padding: 0;
         word-wrap: break-word;
+        font-family: 'Montserrat', sans-serif;
     }
 `;
 
@@ -22,34 +34,33 @@ export const HeaderWrapper = styled.div`
     display: flex;
     align-items: center;
     height: 22%;
-    margin: 2%;
 `
 
 export const Container = styled.div`
-    background-color: ${colorlist.testbgpart};
     display: flex;
-    justify-content: center;
     align-items: center;
+    height: 78.01%;
 `
 
 export const ContainerSub = styled.div`
-    background-color: ${colorlist.testbgpartsub1};
     display: flex;
     flex-direction: column;
     width: 33%;
-    margin: 2%;
+    justify-content: space-between;
+    height: 100%;
 `
 
 export const ContainerMain = styled.div`
-    background-color: ${colorlist.testbgpartsub2};
+    background-color: ${cvcolor["background-secondary-color-blain"]};
     display: flex;
     flex-direction: column;
     width: 67%;
-    margin: 2%;
+    justify-content: space-between;
+    height: 100%;
 `
 
 export const Wrapper = styled.div`
-    background-color: ${colorlist.testbg};
+    background-color: ${cvcolor["background-main-color"]};
     height: 297mm !important;
     width: 210mm !important;
     margin: 0 auto;
