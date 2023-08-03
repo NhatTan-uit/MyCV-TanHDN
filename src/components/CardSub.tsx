@@ -14,6 +14,7 @@ type Props = {
 //Style
 const CardWrapper = styled.div<Pick<Props, "bgcolor">>`
     background-color: ${props => props.bgcolor};
+    width: 100%;
 `;
 
 const CardSub = (props: Props) => {

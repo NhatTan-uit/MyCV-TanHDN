@@ -14,7 +14,7 @@ export const cvcolor = {
     'background-secondary-color-blain': '#FFFFFF',
 
     'text-color-main': '#FFFFFF',
-    'text-color-secondary': '#8EC5DA',
+    'text-color-secondary': '#C1D4DB',
     'text-color-main-blain': "#525859",
     'text-color-secondary-blan': '#AFA69E'
 };
@@ -30,7 +30,6 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const HeaderWrapper = styled.div`
-    background-color: ${colorlist.testbgg};
     display: flex;
     align-items: center;
     height: 22%;

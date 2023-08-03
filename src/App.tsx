@@ -48,7 +48,6 @@ function App() {
           <Wrapper ref={pdfRef}>
             <HeaderWrapper>
               <Header
-                bgcolor={'yellow'}
                 data={cvdataheader}
               ></Header>
             </HeaderWrapper>
