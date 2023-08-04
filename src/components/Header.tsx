@@ -16,7 +16,7 @@ type Props = {
 //Style
 const HeaderWrapper = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
 `;

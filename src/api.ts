@@ -2,7 +2,7 @@ const cvdata = {
     "header": {
         "image": "nonuser",
         "title": "Huynh Dac Nhat Tan",
-        "content": "My current aim is to understand how a real life application work, how it can be deployed into a huge audiences world.\nI am fascinated by mobile apps and websites, also the way data can visualize our daily world and seeking for a chance to approach it. Willing to learn new things, from algorithms to doing research with new technologies."
+        "content": "My current aim is to understand how a real life application works, how it can be deployed into a huge audiences world.\nI am fascinated by mobile apps and websites, also the way data can visualize our daily world and seeking for a chance to approach it. Willing to learn new things, from algorithms to doing research with new technologies."
     },
     "body": {
         "main": [
