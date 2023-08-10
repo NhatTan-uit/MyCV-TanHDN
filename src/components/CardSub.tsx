@@ -8,6 +8,7 @@ type Props = {
   listicon?: [];
   content?: String;
   bgcolor: string;
+  titlecolor: string;
   data?: CVDataBody;
 }
 
@@ -17,38 +18,59 @@ const CardWrapper = styled.div<Pick<Props, "bgcolor">>`
     width: 100%;
 `;
 
+const CardHeader = styled.h1<Pick<Props, "titlecolor">>`
+    text-align: center;
+    color: ${props => props.titlecolor};
+`;
+
+const CardSpacer = styled.div`
+  height: 30px;
+`
+
 const CardSub = (props: Props) => {
   return (
     <CardWrapper {...{
       bgcolor: props.bgcolor
     }}>
+      <CardSpacer />
       {
-        props.data? <h1>{props.data.title}</h1>: <p>nodata</p>
+        props.data ?
+          <CardHeader {...{
+            titlecolor: props.titlecolor
+          }}>
+            {props.data.title}
+          </CardHeader>
+          :
+          <CardHeader {...{
+            titlecolor: props.titlecolor
+          }}>
+            nodata
+          </CardHeader>
       }
+      <CardSpacer />
       {
-        props.listitem && props.listitem.length > 0 ?
+        props.data && props.data.listitem && props.data.listitem.length > 0 ?
           <ul>
             {
-              props.listitem.map((item, key) => {
-                return <li key={key}>{item}</li>;
+              props.data.listitem.map((item, key) => {
+                return <li key={key}>{item.content}</li>;
               })
             }
           </ul> : null
       }
       {
-        props.listicon && props.listicon.length > 0 ?
+        props.data && props.data.listicon && props.data.listicon.length > 0 ?
           <ul>
             {
-              props.listicon.map((item, key) => {
-                return <li key={key}>{item}</li>;
+              props.data.listicon.map((item, key) => {
+                return <li key={key}>{item.content}</li>;
               })
             }
           </ul> : null
       }
-      {
-        props.content ? <p>{props.content}</p> : null
-      }
-    </CardWrapper>
+      <CardSpacer />
+      <CardSpacer />
+    </CardWrapper >
   )
 }
 

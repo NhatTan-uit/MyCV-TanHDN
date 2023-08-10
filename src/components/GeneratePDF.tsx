@@ -1,10 +1,16 @@
 import React, { MutableRefObject } from 'react'
 import { useReactToPrint } from 'react-to-print';
+import { styled } from 'styled-components';
 
 //Types
 interface pdfValue {
     divref: MutableRefObject<HTMLDivElement | null>;
 }
+
+//Styles
+const PrintButton = styled.button`
+    padding: 15px;
+`
 
 const GeneratePDF: React.FC<pdfValue> = ({
     divref,
@@ -15,7 +21,7 @@ const GeneratePDF: React.FC<pdfValue> = ({
     });
     
     return (
-        <button onClick={handlePrint}>To PDF</button>
+        <PrintButton onClick={handlePrint}>To PDF</PrintButton>
     )
 }
 

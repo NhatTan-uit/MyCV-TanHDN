@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from 'styled-components';
-import nonuser from '../assets/nonuser.jpg';
+import hdnt from '../assets/hdnt-uit.jpg';
 
 //components
 import SelfImageInnerShade from './SelfImageInnerShade';
@@ -48,7 +48,7 @@ const SelfImage = (props: Props) => {
     <ImageBorder>
       <SelfImageInnerShade />
       <ImageBorderHide />
-      <HeaderImage src={nonuser} />
+      <HeaderImage src={hdnt} />
     </ImageBorder>
   )
 }
