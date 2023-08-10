@@ -2,6 +2,12 @@ import React from 'react'
 import { styled } from 'styled-components';
 import { CVDataBody } from '../api';
 
+//components
+import CardSubContactItem from './CardSubContactItem';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+
 //Type
 type Props = {
   listitem?: [];
@@ -27,6 +33,13 @@ const CardSpacer = styled.div`
   height: 30px;
 `
 
+const CardList = styled.ul`
+  list-style-position: inside;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+`
+
 const CardSub = (props: Props) => {
   return (
     <CardWrapper {...{
@@ -49,24 +62,32 @@ const CardSub = (props: Props) => {
       }
       <CardSpacer />
       {
+        props.data && props.data.listcontact ?
+          <CardList>
+            <CardSubContactItem content={props.data.listcontact.tel} icon={<PhoneIcon />} />
+            <CardSubContactItem content={props.data.listcontact.gmail} icon={<EmailIcon />} />
+            <CardSubContactItem content={props.data.listcontact.facebook} icon={<FacebookIcon />} />
+          </CardList> : null
+      }
+      {
         props.data && props.data.listitem && props.data.listitem.length > 0 ?
-          <ul>
+          <CardList>
             {
               props.data.listitem.map((item, key) => {
                 return <li key={key}>{item.content}</li>;
               })
             }
-          </ul> : null
+          </CardList> : null
       }
       {
         props.data && props.data.listicon && props.data.listicon.length > 0 ?
-          <ul>
+          <CardList>
             {
               props.data.listicon.map((item, key) => {
                 return <li key={key}>{item.content}</li>;
               })
             }
-          </ul> : null
+          </CardList> : null
       }
       <CardSpacer />
       <CardSpacer />

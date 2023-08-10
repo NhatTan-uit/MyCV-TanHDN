@@ -8,17 +8,12 @@ const cvdata = {
         "sub": [
             {
                 "title": "Contact",
-                "listicon": [
-                    {
-                        "content": "0388338072",
-                    },
-                    {
-                        "content": "nitanhuynh@gmail.com",
-                    },
-                    {
-                        "content": "https://fb.com",
-                    }
-                ]
+                "listcontact":
+                {
+                    "tel": "0388338072",
+                    "gmail": "nitanhuynh@gmail.com",
+                    "facebook": "https://fb.com/kuro.huynh.73",
+                },
             },
             {
                 "title": "Skills",
@@ -58,14 +53,21 @@ export interface CVDataHeader {
     title: string,
 }
 
-export interface datalist {
+export interface CVListData {
     content: string,
+}
+
+export interface CVContactList {
+    tel: string,
+    gmail: string,
+    facebook: string,
 }
 
 export interface CVDataBody {
     title: string,
-    listitem?: datalist[],
-    listicon?: datalist[],
+    listitem?: CVListData[],
+    listicon?: CVListData[],
+    listcontact?: CVContactList,
 }
 
 export const fetchData = async () => {
