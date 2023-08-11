@@ -56,12 +56,13 @@ function App() {
                 {
                   cvdatabodysub && cvdatabodysub.length > 0 ?
                     cvdatabodysub.map((item, key) => {
-                      if (key % 2 == 0) {
+                      if (key % 2 === 0) {
                         return <CardSub
                           key={key}
                           data={item}
                           bgcolor={cvcolor['background-secondary-color']}
                           titlecolor={cvcolor['text-color-main']}
+                          textcolor={cvcolor['text-color-secondary']}
                         />
                       }
                       else return <CardSub
@@ -69,6 +70,7 @@ function App() {
                         data={item}
                         bgcolor={cvcolor['background-main-color']}
                         titlecolor={cvcolor['text-color-main']}
+                        textcolor={cvcolor['text-color-secondary']}
                       />
                     })
                     :
@@ -84,6 +86,7 @@ function App() {
                         data={item}
                         bgcolor={cvcolor['background-secondary-color-blain']}
                         titlecolor={cvcolor['text-color-main-blain']}
+                        textcolor={cvcolor['text-color-main']}
                       />
                     })
                     :

@@ -22,16 +22,23 @@ const cvdata = {
                         "content": "Comunication, teamwork and presentation.",
                     },
                     {
-                        "content": "Basic managing projects and collaboration with github and docker.",
+                        "content": "Basic projects management and collaboration with github and docker.",
                     },
                     {
-                        "content": "Basic Office tools: Word, Excel, Power Point and Power BI.",
+                        "content": "Basic MS Office tools: Word, Excel, Power Point and Power BI.",
                     }
                 ],
             },
             {
                 "title": "Certificates",
-                "listitem": [],
+                "listitem": [
+                    {
+                        "content": "Devera Academy Web Dev and Mobile with Flutter Certificate",
+                    },
+                    {
+                        "content": "TOEIC SW Certificate 130/160 issued by ETS in 2023",
+                    }
+                ],
             }
         ],
         "main": [

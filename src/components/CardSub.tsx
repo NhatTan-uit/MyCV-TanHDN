@@ -3,7 +3,9 @@ import { styled } from 'styled-components';
 import { CVDataBody } from '../api';
 
 //components
-import CardSubContactItem from './CardSubContactItem';
+import CardListItem from './CardListItem';
+
+//mUI icons
 import FacebookIcon from '@mui/icons-material/Facebook';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -15,6 +17,7 @@ type Props = {
   content?: String;
   bgcolor: string;
   titlecolor: string;
+  textcolor: string;
   data?: CVDataBody;
 }
 
@@ -30,13 +33,17 @@ const CardHeader = styled.h1<Pick<Props, "titlecolor">>`
 `;
 
 const CardSpacer = styled.div`
-  height: 30px;
+  height: 25px;
+`
+
+const CardSpacerEnd = styled.div`
+  height: 10px;
 `
 
 const CardList = styled.ul`
   list-style-position: inside;
   list-style-type: none;
-  margin: 0;
+  margin: 0 20px;
   padding: 0;
 `
 
@@ -64,9 +71,23 @@ const CardSub = (props: Props) => {
       {
         props.data && props.data.listcontact ?
           <CardList>
-            <CardSubContactItem content={props.data.listcontact.tel} icon={<PhoneIcon />} />
-            <CardSubContactItem content={props.data.listcontact.gmail} icon={<EmailIcon />} />
-            <CardSubContactItem content={props.data.listcontact.facebook} icon={<FacebookIcon />} />
+            <CardListItem
+              content={props.data.listcontact.tel}
+              icon={<PhoneIcon />}
+              textcolor={props.textcolor}
+            />
+            <CardListItem
+              content={props.data.listcontact.gmail}
+              icon={<EmailIcon />}
+              textcolor={props.textcolor}
+            />
+            <CardListItem
+              linktitle={"Kuro Huynh"}
+              islink={true}
+              content={props.data.listcontact.facebook}
+              icon={<FacebookIcon />}
+              textcolor={props.textcolor}
+            />
           </CardList> : null
       }
       {
@@ -74,7 +95,11 @@ const CardSub = (props: Props) => {
           <CardList>
             {
               props.data.listitem.map((item, key) => {
-                return <li key={key}>{item.content}</li>;
+                return <CardListItem
+                  key={key}
+                  content={item.content}
+                  textcolor={props.textcolor}
+                />;
               })
             }
           </CardList> : null
@@ -90,7 +115,7 @@ const CardSub = (props: Props) => {
           </CardList> : null
       }
       <CardSpacer />
-      <CardSpacer />
+      <CardSpacerEnd />
     </CardWrapper >
   )
 }

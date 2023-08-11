@@ -14,7 +14,7 @@ export const cvcolor = {
     'background-secondary-color-blain': '#FFFFFF',
 
     'text-color-main': '#FFFFFF',
-    'text-color-secondary': '#C1D4DB',
+    'text-color-secondary': '#F6F3ED',
     'text-color-main-blain': "#525859",
     'text-color-secondary-blan': '#AFA69E'
 };
