@@ -40,7 +40,7 @@ const CardHeader = styled.h1<Pick<Props, "titlecolor" | "ismainpart">>`
 `;
 
 const CardSpacer = styled.div`
-  height: 20px;
+  height: 15px;
 `
 
 const CardSpacerEnd = styled.div`
