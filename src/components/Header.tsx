@@ -18,6 +18,7 @@ const HeaderWrapper = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    line-height: 1.4;
     width: 100%;
 `;
 

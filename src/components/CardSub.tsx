@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { CVDataBody } from '../api';
 
 //components
@@ -12,13 +12,12 @@ import EmailIcon from '@mui/icons-material/Email';
 
 //Type
 type Props = {
-  listitem?: [];
-  listicon?: [];
   content?: String;
   bgcolor: string;
   titlecolor: string;
   textcolor: string;
   data?: CVDataBody;
+  ismainpart?: boolean;
 }
 
 //Style
@@ -27,24 +26,40 @@ const CardWrapper = styled.div<Pick<Props, "bgcolor">>`
     width: 100%;
 `;
 
-const CardHeader = styled.h1<Pick<Props, "titlecolor">>`
-    text-align: center;
+const CardHeader = styled.h1<Pick<Props, "titlecolor" | "ismainpart">>`
     color: ${props => props.titlecolor};
+
+    ${props => (props.ismainpart ?
+    css`
+      margin-left: 30px;
+    `
+    :
+    css`
+      text-align: center;
+    `)}
 `;
 
 const CardSpacer = styled.div`
-  height: 25px;
+  height: 20px;
 `
 
 const CardSpacerEnd = styled.div`
-  height: 10px;
+  height: 15px;
 `
 
-const CardList = styled.ul`
+const CardList = styled.ul<Pick<Props, "ismainpart">>`
   list-style-position: inside;
   list-style-type: none;
-  margin: 0 20px;
   padding: 0;
+
+  ${props => (props.ismainpart ?
+    css`
+      margin: 0 30px;
+    `
+    :
+    css`
+      margin: 0 20px;
+    `)}
 `
 
 const CardSub = (props: Props) => {
@@ -56,13 +71,15 @@ const CardSub = (props: Props) => {
       {
         props.data ?
           <CardHeader {...{
-            titlecolor: props.titlecolor
+            titlecolor: props.titlecolor,
+            ismainpart: props.ismainpart
           }}>
             {props.data.title}
           </CardHeader>
           :
           <CardHeader {...{
-            titlecolor: props.titlecolor
+            titlecolor: props.titlecolor,
+            ismainpart: props.ismainpart
           }}>
             nodata
           </CardHeader>
@@ -70,7 +87,9 @@ const CardSub = (props: Props) => {
       <CardSpacer />
       {
         props.data && props.data.listcontact ?
-          <CardList>
+          <CardList {...{
+            ismainpart: props.ismainpart
+          }}>
             <CardListItem
               content={props.data.listcontact.tel}
               icon={<PhoneIcon />}
@@ -92,29 +111,22 @@ const CardSub = (props: Props) => {
       }
       {
         props.data && props.data.listitem && props.data.listitem.length > 0 ?
-          <CardList>
+          <CardList {...{
+            ismainpart: props.ismainpart
+          }}>
             {
               props.data.listitem.map((item, key) => {
                 return <CardListItem
                   key={key}
                   content={item.content}
                   textcolor={props.textcolor}
+                  isbold={item.isbold}
+                  isinline={item.isinline}
                 />;
               })
             }
           </CardList> : null
       }
-      {
-        props.data && props.data.listicon && props.data.listicon.length > 0 ?
-          <CardList>
-            {
-              props.data.listicon.map((item, key) => {
-                return <li key={key}>{item.content}</li>;
-              })
-            }
-          </CardList> : null
-      }
-      <CardSpacer />
       <CardSpacerEnd />
     </CardWrapper >
   )

@@ -86,7 +86,8 @@ function App() {
                         data={item}
                         bgcolor={cvcolor['background-secondary-color-blain']}
                         titlecolor={cvcolor['text-color-main-blain']}
-                        textcolor={cvcolor['text-color-main']}
+                        textcolor={cvcolor['text-color-secondary-blain']}
+                        ismainpart={true}
                       />
                     })
                     :

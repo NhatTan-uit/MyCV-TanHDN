@@ -16,7 +16,7 @@ export const cvcolor = {
     'text-color-main': '#FFFFFF',
     'text-color-secondary': '#F6F3ED',
     'text-color-main-blain': "#525859",
-    'text-color-secondary-blan': '#AFA69E'
+    'text-color-secondary-blain': '#5A5A5A'
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -54,7 +54,6 @@ export const ContainerMain = styled.div`
     display: flex;
     flex-direction: column;
     width: 67%;
-    justify-content: space-between;
     height: 100%;
 `
 

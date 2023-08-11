@@ -2,7 +2,7 @@ const cvdata = {
     "header": {
         "image": "nonuser",
         "title": "Huynh Dac Nhat Tan",
-        "content": "My current aim is to understand how a real life application works, how it can be deployed into a huge audiences world.\nI am fascinated by mobile apps and websites, also the way data can visualize our daily life and seeking for a chance to approach it. Willing to learn new things, from algorithms to doing research with new technologies."
+        "content": "My current aim is to understand how a real-life application works, and what strategies and processes are needed to operate it.\nI am fascinated by mobile apps and websites, also the way data can visualize our daily life and seeking a chance to approach its technologies. Willing to learn new things, from algorithms to doing research with new technologies."
     },
     "body": {
         "sub": [
@@ -44,11 +44,54 @@ const cvdata = {
         "main": [
             {
                 "title": "Education",
-                "listitem": [],
+                "listitem": [
+                    {
+                        "content": "Studying",
+                        "isinline": true,
+                    },
+                    {
+                        "content": "Social Media and Web Technologies",
+                        "isbold": true,
+                        "isinline": true,
+                    },
+                    {
+                        "content": "at",
+                        "isinline": true,
+                    },
+                    {
+                        "content": "University of Information and Technology (Vietnam National University - HCMC)",
+                        "isbold": true,
+                        "isinline": true,
+                    },
+                    {
+                        "content": "from 2019 to 2023,",
+                        "isinline": true,
+                    },
+                    {
+                        "content": "GPA: 7.9/10",
+                        "isinline": true,
+                    }
+                ],
             },
             {
                 "title": "Experiences",
-                "listitem": [],
+                "listitem": [
+                    {
+                        "content": "Basic understanding of programming languages: C++, C#, markup languages (XML, XAML, HTML,...), CSS, SASS, java, javascript, python,..."
+                    },
+                    {
+                        "content": "Naming Convention, Thinking in Code, React, trying to optimize and reuse code. Basic debugging skills and ability to research to understand interfaces logic inside a system",
+                    },
+                    {
+                        "content": "Have experience in Mobile apps with Flutter and Xamarin.",
+                    },
+                    {
+                        "content": "Have experience in React application. Some minor projects: Spotify clone with Spotify dev API, E-commerce web app, QuestGame with quizapi,...",
+                    },
+                    {
+                        "content": "SQL and noSQL understanding, server API response and data management. Basic experience in data mining, data visualization, data storage and OLAP, and deep learning (NLP and recommender system)",
+                    }
+                ],
             }
         ]
     }
@@ -62,6 +105,8 @@ export interface CVDataHeader {
 
 export interface CVListData {
     content: string,
+    isbold?: boolean,
+    isinline?: boolean,
 }
 
 export interface CVContactList {
@@ -73,7 +118,6 @@ export interface CVContactList {
 export interface CVDataBody {
     title: string,
     listitem?: CVListData[],
-    listicon?: CVListData[],
     listcontact?: CVContactList,
 }
 
