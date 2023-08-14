@@ -12,22 +12,7 @@ const cvdata = {
                 {
                     "tel": "0388338072",
                     "gmail": "nitanhuynh@gmail.com",
-                    "facebook": "https://fb.com/kuro.huynh.73",
                 },
-            },
-            {
-                "title": "Skills",
-                "listitem": [
-                    {
-                        "content": "Comunication, teamwork and presentation.",
-                    },
-                    {
-                        "content": "Basic projects management and collaboration with github and docker.",
-                    },
-                    {
-                        "content": "Basic MS Office tools: Word, Excel, Power Point and Power BI.",
-                    }
-                ],
             },
             {
                 "title": "Certificates",
@@ -39,6 +24,23 @@ const cvdata = {
                         "content": "TOEIC SW Certificate 130/160 issued by ETS in 2023",
                     }
                 ],
+            },
+            {
+                "title": "Skills",
+                "listitem": [
+                    {
+                        "content": "Constant communication and feedback to clarify the problems",
+                    },
+                    {
+                        "content": "Ability to brainstorm, cultivate and sharing ideas in group",
+                    },
+                    {
+                        "content": "Basic projects management and collaboration with github and docker.",
+                    },
+                    {
+                        "content": "Basic MS Office tools: Word, Excel, Power Point and Power BI.",
+                    }
+                ],
             }
         ],
         "main": [
@@ -46,25 +48,25 @@ const cvdata = {
                 "title": "Education",
                 "listitem": [
                     {
-                        "content": "Studying",
-                        "isinline": true,
-                    },
-                    {
-                        "content": "Social Media and Web Technologies",
-                        "isbold": true,
-                        "isinline": true,
-                    },
-                    {
-                        "content": "at",
-                        "isinline": true,
-                    },
-                    {
                         "content": "University of Information and Technology (Vietnam National University - HCMC)",
                         "isbold": true,
                         "isinline": true,
                     },
                     {
-                        "content": "from 2019 to 2023,",
+                        "content": "Major: ",
+                        "isinline": true,
+                    },
+                    {
+                        "content": "Social Media and Web Technologies",
+                        "isinline": true,
+                    },
+                    {
+                        "content": "August 2019 - now",
+                        "isinline": true,
+                    },
+                    {
+                        "content": "|",
+                        "isbold": true,
                         "isinline": true,
                     },
                     {
@@ -74,23 +76,48 @@ const cvdata = {
                 ],
             },
             {
-                "title": "Experiences",
+                "title": "Projects",
                 "listitem": [
                     {
-                        "content": "Basic understanding of programming languages: C++, C#, markup languages (XML, XAML, HTML,...), CSS, SASS, java, javascript, python,..."
+                        "content": "QuestGame with quizapi, Spotify clone using ReactJS and Spotify Dev API to serve back-end",
+                        "timescheme": {
+                            "title": "QuestGame and Spotify with ReactJS",
+                            "timestart": "09/2021",
+                            "timeend": "12/2021",
+                        }
                     },
                     {
-                        "content": "Naming Convention, Thinking in Code, React, trying to optimize and reuse code. Basic debugging skills and ability to research to understand interfaces logic inside a system",
+                        "content": "E-commerce novel reading website build with MERN stack, redux and restful API",
+                        "timescheme": {
+                            "title": "Novel Reading website - docln.net cloning",
+                            "timestart": "09/2021",
+                            "timeend": "12/2021",
+                        }
                     },
                     {
-                        "content": "Have experience in Mobile apps with Flutter and Xamarin.",
+                        "content": "Design this CV using React Typescript with printer api and styled-component.",
+                        "timescheme": {
+                            "title": "CV App with Typescript",
+                            "timestart": "08/2023",
+                            "timeend": "current",
+                        }
                     },
                     {
-                        "content": "Have experience in React application. Some minor projects: Spotify clone with Spotify dev API, E-commerce web app, QuestGame with quizapi,...",
+                        "content": "Doing research, analysis about DW & OLAP, Social Media Data Mining with ps4 games sale dataset on kaggle and python",
+                        "timescheme": {
+                            "title": "Data warehous & OLAP and Social Network Mining",
+                            "timestart": "03/2022",
+                            "timeend": "12/2022",
+                        }
                     },
                     {
-                        "content": "SQL and noSQL understanding, server API response and data management. Basic experience in data mining, data visualization, data storage and OLAP, and deep learning (NLP and recommender system)",
-                    }
+                        "content": "Doing research on deep learning models for NLP and recommender system with IEEE, arxis papers and jornals references",
+                        "timescheme": {
+                            "title": "Speech detection on Vietnamese dataset",
+                            "timestart": "02/2023",
+                            "timeend": "06/2023",
+                        }
+                    },
                 ],
             }
         ]
@@ -103,16 +130,22 @@ export interface CVDataHeader {
     title: string,
 }
 
+export interface CVScheme {
+    title: string,
+    timestart: string,
+    timeend: string,
+}
+
 export interface CVListData {
     content: string,
     isbold?: boolean,
     isinline?: boolean,
+    timescheme?: CVScheme,
 }
 
 export interface CVContactList {
     tel: string,
     gmail: string,
-    facebook: string,
 }
 
 export interface CVDataBody {

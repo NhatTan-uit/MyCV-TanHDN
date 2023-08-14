@@ -74,24 +74,37 @@ function App() {
                       />
                     })
                     :
-                    <p>no item</p>
+                    null
                 }
               </ContainerSub>
               <ContainerMain>
                 {
                   cvdatabodymain && cvdatabodymain.length > 0 ?
-                    cvdatabodymain.map((item, key) => {
-                      return <CardSub
-                        key={key}
-                        data={item}
-                        bgcolor={cvcolor['background-secondary-color-blain']}
-                        titlecolor={cvcolor['text-color-main-blain']}
-                        textcolor={cvcolor['text-color-secondary-blain']}
-                        ismainpart={true}
-                      />
+                    cvdatabodymain.map((item, key, arr) => {
+                      if (key + 1 === arr.length) {
+                        return <CardSub
+                          key={key}
+                          data={item}
+                          bgcolor={cvcolor['background-secondary-color-blain']}
+                          titlecolor={cvcolor['text-color-main-blain']}
+                          textcolor={cvcolor['text-color-secondary-blain']}
+                          ismainpart={true}
+                          islastitem={true}
+                        />
+                      } else {
+                        return <CardSub
+                          key={key}
+                          data={item}
+                          bgcolor={cvcolor['background-secondary-color-blain']}
+                          titlecolor={cvcolor['text-color-main-blain']}
+                          textcolor={cvcolor['text-color-secondary-blain']}
+                          ismainpart={true}
+                          eliminatefoot={true}
+                        />
+                      }
                     })
                     :
-                    <p>no item</p>
+                    null
                 }
               </ContainerMain>
             </Container>

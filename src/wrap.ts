@@ -53,6 +53,7 @@ export const ContainerMain = styled.div`
     background-color: ${cvcolor["background-secondary-color-blain"]};
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     width: 67%;
     height: 100%;
 `

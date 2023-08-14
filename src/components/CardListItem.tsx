@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
 import { css, styled } from 'styled-components';
+import { CVScheme } from '../api';
+import CardListScheme from './CardListScheme';
 
 //Types
 type Props = {
@@ -9,12 +11,13 @@ type Props = {
   icon?: ReactNode;
   isbold?: boolean;
   isinline?: boolean;
+  timescheme?: CVScheme;
   textcolor: string;
 };
 
 //Style
 const ContactItem = styled.li<Pick<Props, "textcolor" | "isbold" | "isinline">>`
-  padding-bottom: 7%;
+  padding-bottom: 6%;
   font-size: 16.5px;
   letter-spacing: 0.5px;
   color: ${props => props.textcolor};
@@ -60,51 +63,54 @@ const CardListItem = (props: Props) => {
     isinline: props.isinline
   }}>
     {
-      !props.islink ?
-        props.icon ?
-          <Container {...{
-            isbold: props.isbold
-          }}>
-            <Item>{props.icon}</Item>
-            {props.content}
-          </Container>
-          :
-          <Container {...{
-            isbold: props.isbold
-          }}>
-            {props.content}
-          </Container>
+      props.timescheme ?
+        <CardListScheme content={props.content} scheme={props.timescheme} />
         :
-        props.linktitle ?
+        !props.islink ?
           props.icon ?
             <Container {...{
               isbold: props.isbold
             }}>
               <Item>{props.icon}</Item>
-              <FacebookLink
-                {...{
-                  textcolor: props.textcolor
-                }}
-                href={props.content}
-              >
-                {props.linktitle}
-              </FacebookLink>
+              {props.content}
             </Container>
             :
             <Container {...{
               isbold: props.isbold
             }}>
-              <FacebookLink
-                {...{
-                  textcolor: props.textcolor
-                }}
-                href={props.content}
-              >
-                {props.linktitle}
-              </FacebookLink>
+              {props.content}
             </Container>
           :
-          null
+          props.linktitle ?
+            props.icon ?
+              <Container {...{
+                isbold: props.isbold
+              }}>
+                <Item>{props.icon}</Item>
+                <FacebookLink
+                  {...{
+                    textcolor: props.textcolor
+                  }}
+                  href={props.content}
+                >
+                  {props.linktitle}
+                </FacebookLink>
+              </Container>
+              :
+              <Container {...{
+                isbold: props.isbold
+              }}>
+                <FacebookLink
+                  {...{
+                    textcolor: props.textcolor
+                  }}
+                  href={props.content}
+                >
+                  {props.linktitle}
+                </FacebookLink>
+              </Container>
+            :
+            null
     }
   </ContactItem>;
 };

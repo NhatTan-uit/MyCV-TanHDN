@@ -6,7 +6,6 @@ import { CVDataBody } from '../api';
 import CardListItem from './CardListItem';
 
 //mUI icons
-import FacebookIcon from '@mui/icons-material/Facebook';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 
@@ -18,6 +17,8 @@ type Props = {
   textcolor: string;
   data?: CVDataBody;
   ismainpart?: boolean;
+  islastitem?: boolean;
+  eliminatefoot?: boolean;
 }
 
 //Style
@@ -67,7 +68,11 @@ const CardSub = (props: Props) => {
     <CardWrapper {...{
       bgcolor: props.bgcolor
     }}>
-      <CardSpacer />
+      {
+        !props.islastitem ?
+          <CardSpacer />
+          : null
+      }
       {
         props.data ?
           <CardHeader {...{
@@ -100,13 +105,6 @@ const CardSub = (props: Props) => {
               icon={<EmailIcon />}
               textcolor={props.textcolor}
             />
-            <CardListItem
-              linktitle={"Kuro Huynh"}
-              islink={true}
-              content={props.data.listcontact.facebook}
-              icon={<FacebookIcon />}
-              textcolor={props.textcolor}
-            />
           </CardList> : null
       }
       {
@@ -122,12 +120,17 @@ const CardSub = (props: Props) => {
                   textcolor={props.textcolor}
                   isbold={item.isbold}
                   isinline={item.isinline}
+                  timescheme={item.timescheme}
                 />;
               })
             }
           </CardList> : null
       }
-      <CardSpacerEnd />
+      {
+        !props.eliminatefoot ?
+          <CardSpacerEnd />
+          : null
+      }
     </CardWrapper >
   )
 }
