@@ -11,6 +11,7 @@ type Props = {
 //Styles
 const Container = styled.div`
     display: flex;
+    white-space: pre-line
 `;
 
 const Timer = styled.div`

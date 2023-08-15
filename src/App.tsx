@@ -90,6 +90,7 @@ function App() {
                           textcolor={cvcolor['text-color-secondary-blain']}
                           ismainpart={true}
                           islastitem={true}
+                          eliminatefoot={true}
                         />
                       } else {
                         return <CardSub

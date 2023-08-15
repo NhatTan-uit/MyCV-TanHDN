@@ -8,6 +8,7 @@ import CardListItem from './CardListItem';
 //mUI icons
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 //Type
 type Props = {
@@ -104,6 +105,13 @@ const CardSub = (props: Props) => {
               content={props.data.listcontact.gmail}
               icon={<EmailIcon />}
               textcolor={props.textcolor}
+            />
+            <CardListItem
+              content={props.data.listcontact.github}
+              icon={<GitHubIcon />}
+              textcolor={props.textcolor}
+              islink={true}
+              linktitle={"NhatTan-uit"}
             />
           </CardList> : null
       }

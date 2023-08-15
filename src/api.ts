@@ -12,6 +12,7 @@ const cvdata = {
                 {
                     "tel": "0388338072",
                     "gmail": "nitanhuynh@gmail.com",
+                    "github": "https://github.com/NhatTan-uit",
                 },
             },
             {
@@ -53,12 +54,7 @@ const cvdata = {
                         "isinline": true,
                     },
                     {
-                        "content": "Major: ",
-                        "isinline": true,
-                    },
-                    {
-                        "content": "Social Media and Web Technologies",
-                        "isinline": true,
+                        "content": "Major: Social Media and Web Technologies",
                     },
                     {
                         "content": "August 2019 - now",
@@ -79,31 +75,31 @@ const cvdata = {
                 "title": "Projects",
                 "listitem": [
                     {
-                        "content": "QuestGame with quizapi, Spotify clone using ReactJS and Spotify Dev API to serve back-end",
+                        "content": "QuestGame with quizapi, Spotify clone with Spotify Dev API to serve back-end. \nE-commerce novel reading website built with MERN stack, redux and restful API.",
                         "timescheme": {
-                            "title": "QuestGame and Spotify with ReactJS",
+                            "title": "ReactJS web application",
                             "timestart": "09/2021",
                             "timeend": "12/2021",
                         }
                     },
                     {
-                        "content": "E-commerce novel reading website build with MERN stack, redux and restful API",
+                        "content": "Flutter cloning ninja-fruit using BloC to support logic state and props and dev.pub API. \nXamarin cloning GameK using XAML to build UI and C# for structure.",
                         "timescheme": {
-                            "title": "Novel Reading website - docln.net cloning",
-                            "timestart": "09/2021",
-                            "timeend": "12/2021",
+                            "title": "Moblie application with Flutter, Xamarin",
+                            "timestart": "04/2022",
+                            "timeend": "07/2022",
                         }
                     },
                     {
-                        "content": "Design this CV using React Typescript with printer api and styled-component.",
+                        "content": "Design this CV using React Typescript with printer API and styled-component.",
                         "timescheme": {
-                            "title": "CV App with Typescript",
+                            "title": "CV App with React Typescript",
                             "timestart": "08/2023",
                             "timeend": "current",
                         }
                     },
                     {
-                        "content": "Doing research, analysis about DW & OLAP, Social Media Data Mining with ps4 games sale dataset on kaggle and python",
+                        "content": "Doing research, analysis about DW & OLAP, Social Media Data Mining with ps4 games sale dataset on Kaggle and python.",
                         "timescheme": {
                             "title": "Data warehous & OLAP and Social Network Mining",
                             "timestart": "03/2022",
@@ -111,7 +107,7 @@ const cvdata = {
                         }
                     },
                     {
-                        "content": "Doing research on deep learning models for NLP and recommender system with IEEE, arxis papers and jornals references",
+                        "content": "Researching deep learning models for NLP and recommender systems with IEEE, arxis papers and journals references.",
                         "timescheme": {
                             "title": "Speech detection on Vietnamese dataset",
                             "timestart": "02/2023",
@@ -146,6 +142,7 @@ export interface CVListData {
 export interface CVContactList {
     tel: string,
     gmail: string,
+    github: string,
 }
 
 export interface CVDataBody {

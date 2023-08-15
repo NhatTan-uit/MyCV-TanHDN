@@ -16,20 +16,17 @@ type Props = {
 };
 
 //Style
-const ContactItem = styled.li<Pick<Props, "textcolor" | "isbold" | "isinline">>`
-  padding-bottom: 6%;
-  font-size: 16.5px;
+const ContactItem = styled.li<Pick<Props, "textcolor" | "isinline">>`
+  padding-bottom: 4%;
+  font-size: 15.5px;
   letter-spacing: 0.5px;
+  
   color: ${props => props.textcolor};
 
   ${props => props.isinline &&
     css`
       display: inline-block;
       margin-right: 5px;
-    `}
-
-  ${props => props.isbold &&
-    css`
     `}
 `;
 
