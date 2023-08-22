@@ -1,5 +1,5 @@
 import React, { MutableRefObject } from 'react'
-import { useReactToPrint } from 'react-to-print';
+import ReactToPrint from 'react-to-print';
 import { styled } from 'styled-components';
 
 //Types
@@ -15,13 +15,14 @@ const PrintButton = styled.button`
 const GeneratePDF: React.FC<pdfValue> = ({
     divref,
 }) => {
-    const handlePrint = useReactToPrint({
-        content: () => divref.current,
-        documentTitle: 'cv-tanhdn',
-    });
-    
     return (
-        <PrintButton onClick={handlePrint}>To PDF</PrintButton>
+        <ReactToPrint 
+            trigger={() => {
+                return <PrintButton />
+            }}
+            content={() => divref.current}
+            documentTitle={"tan-hdn-cv"}
+        />
     )
 }
 

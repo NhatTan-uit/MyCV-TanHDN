@@ -2,7 +2,7 @@ const cvdata = {
     "header": {
         "image": "nonuser",
         "title": "Huynh Dac Nhat Tan",
-        "content": "My current aim is to understand how a real-life application works, and what strategies and processes are needed to operate it.\nI am fascinated by mobile apps and websites, also the way data can visualize our daily life and seeking a chance to approach its technologies. Willing to learn new things, from algorithms to doing research with new technologies."
+        "content": "My current aim is to understand how a real-life IT product works, and what strategies and processes are needed to operate it.\nI am fascinated by embedded software, how it can communicate with other hardware devices, also the way data can visualize our daily life and seeking a chance to approach these technologies.\n Willing to learn new things, from algorithms to doing research with new technologies."
     },
     "body": {
         "sub": [
@@ -75,6 +75,14 @@ const cvdata = {
                 "title": "Projects",
                 "listitem": [
                     {
+                        "content": "Researched and understand data structures, algorithms, C++ OOP and cursor. Ability to think in code, optimize, reuse in C++, naming convention and research the use of logic interfaces, and libraries inside a system",
+                        "timescheme": {
+                            "title": "C, C++ programming",
+                            "timestart": "06/2019",
+                            "timeend": "02/2021",
+                        }
+                    },
+                    {
                         "content": "QuestGame with quizapi, Spotify clone with Spotify Dev API to serve back-end. \nE-commerce novel reading website built with MERN stack, redux and restful API.",
                         "timescheme": {
                             "title": "ReactJS web application",
@@ -96,14 +104,6 @@ const cvdata = {
                             "title": "CV App with React Typescript",
                             "timestart": "08/2023",
                             "timeend": "current",
-                        }
-                    },
-                    {
-                        "content": "Doing research, analysis about DW & OLAP, Social Media Data Mining with ps4 games sale dataset on Kaggle and python.",
-                        "timescheme": {
-                            "title": "Data warehous & OLAP and Social Network Mining",
-                            "timestart": "03/2022",
-                            "timeend": "12/2022",
                         }
                     },
                     {

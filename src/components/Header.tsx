@@ -18,7 +18,7 @@ const HeaderWrapper = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    line-height: 1.4;
+    line-height: 1.3;
     width: 100%;
 `;
 
@@ -30,13 +30,13 @@ const HeaderContentWrapper = styled.div`
 `;
 
 const Title = styled.h1`
-    font-size: 22pt;
+    font-size: 20pt;
     margin-bottom: 5px;
     color: ${cvcolor['text-color-main']};
 `;
 
 const Content = styled.p`
-    font-size: 13pt;
+    font-size: 12.5pt;
     text-align: justify;
     color: ${cvcolor['text-color-secondary']};
     word-wrap: break-word;

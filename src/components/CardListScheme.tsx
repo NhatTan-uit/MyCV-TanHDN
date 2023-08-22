@@ -51,12 +51,12 @@ const ContentPart = styled.div`
 const Item = styled.div`
     line-height: 1.5;
     text-align: justify;
-    font-size: 15px;
+    font-size: 14.5px;
 `;
 
 const Header = styled.h4`
     padding-bottom: 5px;
-    font-size: 17px;
+    font-size: 16.5px;
 `;
 
 const CardListScheme = (props: Props) => {

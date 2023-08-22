@@ -42,6 +42,7 @@ function App() {
 
   return (
     <StyleSheetManager shouldForwardProp={isPropValid}>
+      <GeneratePDF divref={pdfRef} />
       <GlobalStyle />
       {
         !loadingState ?
@@ -115,7 +116,6 @@ function App() {
             Loading...
           </Wrapper>
       }
-      <GeneratePDF divref={pdfRef} />
     </StyleSheetManager>
   );
 }
